@@ -7,5 +7,8 @@ export default DS.Model.extend({
     priority: DS.attr('string'),
     status: DS.attr('string'),
     archived: DS.attr('string'),
-    reminders: DS.hasMany('reminder')
+    reminders: DS.hasMany('reminder'),
+    reminderenabled: DS.attr(),
+    reminderdate: DS.attr(),
+    enablemail: DS.attr()
 });

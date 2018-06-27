@@ -1,1 +1,14 @@
+<div class="alarm-activated" style="display:none">
+    <div class="center">
+        <h1>
+            <span>Reminder!</span> Time to get " {{activeReminderTask.desc}} " done...</h1>
+        <p>Click on the alarm icon to make me go away!
+        </p>
+
+        <button id="click-me" onclick={{action 'closeReminder'}}>
+            <i class="fa fa-bell" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
 {{tasklist-view model=model redirect="redirect"}}

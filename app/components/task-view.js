@@ -5,7 +5,7 @@ export default Component.extend({
     priorities: metadata.priorities,
     actions: {
         saveTask(task) {
-            console.log("Save Task : " + task.id);
+            console.log("Save Task : reminderenabled : " + task.reminderenabled);
             task.save();
             this.actions.closeModal();
             this.sendAction("redirect", {});
@@ -13,12 +13,10 @@ export default Component.extend({
         },
 
         setStatus(value) {
-            console.log("setStatus : " + value);
             this.get("activeTask").set("status", value);
 
         },
         setPriority(value) {
-            console.log("setPriority : " + value);
             this.get("activeTask").set("priority", value);
         },
         closeModal() {

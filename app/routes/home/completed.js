@@ -13,7 +13,7 @@ export default Route.extend({
     },
     actions: {
         sessionChanged: function () {
-            window.location.reload(true);
+            //window.location.reload(true);
             this.refresh();
         }
     }

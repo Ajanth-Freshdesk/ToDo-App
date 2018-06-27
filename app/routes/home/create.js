@@ -10,6 +10,9 @@ export default Route.extend({
         newTask.set("status", "Open");
         newTask.set("priority", "High");
         newTask.set("user", user);
+        newTask.set("reminderenabled", true);
+        newTask.set("reminderdate", new Date());
+        newTask.set("enablemail", true);
         return newTask;
     }
 

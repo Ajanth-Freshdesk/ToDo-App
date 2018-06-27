@@ -5,16 +5,11 @@ export default Component.extend({
 
         onEditTask(task) {
             this.set("activeTask", task);
-            if (!task.currentReminder || task.currentReminder.length == 0) {
-                var d = new Date(task.deadline);
-                var datestring = d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " +
-                    d.getHours() + ":" + d.getMinutes();
-                task.currentReminder = datestring;
-            }
             Ember.$('#editTask').toggle();
         },
-        deleteTask(task) {
+        deleteTask(task, event) {
             console.log("delete Task : " + task.id);
+            event.stopPropagation();
             task.destroyRecord();
             this.sendAction("redirect");
         },

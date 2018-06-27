@@ -13,7 +13,12 @@ export default Route.extend({
     actions: {
         sessionChanged: function () {
             this.refresh();
-            window.location.reload(true);
         }
+
+    },
+    afterModel: function () {
+        this.controllerFor("home.open").monitorReminders();
+        if (Notification.permission !== "granted")
+            Notification.requestPermission();
     }
 });

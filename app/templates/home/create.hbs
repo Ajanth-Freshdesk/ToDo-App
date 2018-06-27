@@ -35,7 +35,7 @@
         <div class="row my-2">
             <div class="col-md-4" style="padding-top:5px;">
                 <label class="control-label">Enable Reminder :</label>
-                {{input type="checkbox" checked=model.enableReminder class="input-md"}}
+                {{input type="checkbox" checked=model.reminderenabled class="input-md"}}
             </div>
             <div class="col-md-8">
                 <label class="control-label">Due Date:</label>
@@ -44,19 +44,19 @@
                 </div>
             </div>
         </div>
-        {{#if model.enableReminder}}
+        {{#if model.reminderenabled}}
         <div class="row my-2">
             <div class="col-md-12">
                 <label class="control-label">Reminder Date:</label>
                 <div class="date-input">
-                    {{bs-datetimepicker date=model.deadline allowInputToggle=true showClose=true}}
+                    {{bs-datetimepicker date=model.reminderdate allowInputToggle=true showClose=true}}
                 </div>
             </div>
         </div>
         <div class="row my-2">
             <div class="col-md-12">
                 <label class="control-label">Enable Email Notification :</label>
-                {{input type="checkbox" checked=model.enableEmail class="input-md"}}
+                {{input type="checkbox" checked=model.enablemail class="input-md"}}
             </div>
 
         </div>
