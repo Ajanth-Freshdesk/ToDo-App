@@ -1,0 +1,81 @@
+<div class="modal" tabindex="-1" id="editTask" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-body">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Edit To-Do Task</h5>
+                <label onclick={{action 'closeModal'}} role="button" for="check" aria-label="close" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </label>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Description : </label>
+                            {{input type="text" value=activeTask.desc class="form-control"}}
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-6">
+                            <label class="control-label">Status : </label>
+                            <select onchange={{action "setStatus" value="target.value" }}>
+                                {{#each statuses as |status|}}
+                                <option value={{status.value}} selected={{is-equal status.value activeTask.status}}>
+                                    {{status.name}}
+                                </option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label">Priority : </label>
+                            <select onchange={{action "setPriority" value="target.value" }}>
+                                {{#each priorities as |priority|}}
+                                <option value={{priority.value}} selected={{is-equal priority.value activeTask.priority}}>
+                                    {{priority.name}}
+                                </option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-4" style="padding-top:5px;">
+                            <label class="control-label">Enable Reminder :</label>
+                            {{input type="checkbox" checked=activeTask.enableReminder class="input-md"}}
+                        </div>
+                        <div class="col-md-8">
+                            <label class="control-label">Due Date:</label>
+                            <div class="date-input">
+                                {{#if activeTask.deadline}} {{bs-datetimepicker date=activeTask.deadline allowInputToggle=true}} {{/if}}
+                            </div>
+                        </div>
+
+                    </div>
+                    {{#if activeTask.enableReminder}}
+                    <div class="row my-2">
+                        <div class="col-md-12">
+                            <label class="control-label">Reminder Date:</label>
+                            <div class="date-input">
+                                {{bs-datetimepicker date=activeTask.deadline allowInputToggle=true showClose=true}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-12">
+                            <label class="control-label">Enable Email Notification :</label>
+                            {{input type="checkbox" checked=activeTask.enableEmail class="input-md"}}
+                        </div>
+
+                    </div>
+                    {{/if}}
+
+                    <div class="row my-2">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-primary btn-sm" onclick={{action 'saveTask' activeTask}}>Save </button>
+                            <button class="btn btn-danger btn-sm" onclick={{action 'closeModal'}} data-dismiss="modal">Cancel </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

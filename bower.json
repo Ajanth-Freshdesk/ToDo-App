@@ -1,0 +1,7 @@
+{
+  "name": "todoapp-gui",
+  "dependencies": {
+    "sweetalert2": "^6.1.0",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47"
+  }
+}

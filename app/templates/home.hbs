@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    {{#link-to 'home.open' class="nav-link"}}To-Do{{/link-to}}
+                </li>
+                <li class="nav-item">
+                    {{#link-to 'home.completed' class="nav-link"}}Completed{{/link-to}}
+                </li>
+                <li class="nav-item">
+                    {{#link-to 'home.archived' class="nav-link"}}Archived{{/link-to}}
+                </li>
+                <div class="align-right">
+                    {{#link-to 'home.create' tagName='button' class="btn btn-sm btn-success"}}
+                    <i class="fa fa-plus"></i> Add Task {{/link-to}}
+
+                    <button class="btn btn-sm btn-danger">
+                        <i class="fa fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </ul>
+        </div>
+        {{outlet}}
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="card-body">
+    <div class="card-title">
+        <span class="tasks-header">
+
+        </span>
+    </div>
+    <div>
+        {{#each model as |task|}}
+        <a href="#" class="list-group-item card-1 list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{task.desc}}</h5>
+            </div>
+            <p class="mb-1"></p>
+            <div>
+                <div class="date-input">
+                    <fieldset disabled>
+                        {{bs-datetimepicker date=task.deadline}}
+                    </fieldset>
+
+                </div>
+                <button onclick={{action 'deleteTask' task}} class="btn btn-danger btn-xs">
+                    <i class="fa fa-trash"></i>
+                </button>
+                <button onclick={{action 'onEditTask' task}} type="button" data-toggle="modal" data-target="#editModal" class="btn btn-primary btn-xs">
+                    <i class="fa fa-edit"></i>
+                </button>
+            </div>
+
+
+
+            <div class="status-input">
+                <small>Status :</small>
+                <span class="badge badge-pill badge-primary">{{task.status}}</span>
+
+                <small>Priority :</small>
+                <span class={{task.priorityClass}}>{{task.priority}}</span>
+            </div>
+            {{task-view activeTask=activeTask redirect="redirect"}}
+        </a>
+        {{/each}}
+    </div>
+</div>
