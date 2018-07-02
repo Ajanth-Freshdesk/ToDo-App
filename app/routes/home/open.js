@@ -6,6 +6,7 @@ export default Route.extend({
         var tasks = userInfo.get("tasks");
         return tasks.filter(function (task) {
             task.set("isEditing", false);
+            task.set("readabledate", moment(task.deadline).format('lll'));
             task.set("priorityClass", "badge badge-pill " + (metadata.priorityClassMap[task.priority] || "badge-danger"));
             return task.status == "open" || task.status == "Open";
         });
@@ -13,6 +14,7 @@ export default Route.extend({
     actions: {
         sessionChanged: function () {
             this.refresh();
+            window.location.reload(true);
         }
 
     },

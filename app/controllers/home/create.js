@@ -11,6 +11,7 @@ export default Controller.extend({
         },
         cancelSave() {
             this.get('model').rollbackAttributes();
+            this.transitionToRoute('home.open');
         },
         setStatus(value) {
             this.get("model").set("status", value);

@@ -1,48 +1,45 @@
 <div class="card-body">
-    <div class="card-title">
-        <span class="tasks-header">
-
-        </span>
-    </div>
-    <div>
+    <div class="row">
         {{#each model as |task|}}
-        <a onclick={{action 'onEditTask' task}} class="list-group-item card-1 list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{task.desc}}</h5>
-            </div>
-            <p class="mb-1"></p>
-            <div>
-                <div class="date-input">
-                    <fieldset disabled>
-                        {{bs-datetimepicker date=task.deadline}}
-                    </fieldset>
+        <div class="col-md-4 col-sm-6" style="padding:3px;">
+            <div class="card text-center radius shadowDepth1">
+                <div class="card__image border-tlr-radius">
+                    <span>
+                        {{task.desc}}
+                    </span>
 
                 </div>
-                <button onclick={{action 'deleteTask' task}} class="btn btn-danger btn-xs">
-                    <i class="fa fa-trash"></i>
-                </button>
+                <div class="card-body">
+                    <div class="card__share">
+                        <a id="share" onclick={{action 'onEditTask' task}} class="share-toggle share-icon">
+                            <span class="fa fa-pencil-alt"></span>
+                        </a>
+                        <a id="share" onclick={{action 'deleteTask' task}} class="share-toggle share-icon">
+                            <span class="fa fa-trash text-red"></span>
+                        </a>
+                    </div>
 
+                    <p class="row card-text">
+                        <span>{{task.readabledate}}</span>
+                    </p>
+                </div>
+                <div class="card-footer text-muted">
+                    <div class="status-input">
+                        <small>Status :</small>
+                        <span class="badge badge-pill badge-primary">{{task.status}}</span>
 
+                        <small>Priority :</small>
+                        <span class={{task.priorityClass}}>{{task.priority}}</span>
 
+                        {{#if task.reminderenabled}}
+                        <span class="float-right fa fa-bell fa-2x"></span>
+                        {{/if}} {{#if task.enablemail}}
+                        <span class="float-right fa fa-envelope fa-2x mx-2"></span>
+                        {{/if}}
+                    </div>
+                </div>
             </div>
-
-
-
-            <div class="status-input">
-                <small>Status :</small>
-                <span class="badge badge-pill badge-primary">{{task.status}}</span>
-
-                <small>Priority :</small>
-                <span class={{task.priorityClass}}>{{task.priority}}</span>
-
-                {{#if task.reminderenabled}}
-                <span class="float-right fa fa-bell text-orange fa-2x"></span>
-                {{/if}} {{#if task.enablemail}}
-                <span class="float-right fa fa-envelope text-green fa-2x mx-2"></span>
-                {{/if}}
-            </div>
-
-        </a>
+        </div>
         {{/each}} {{task-view activeTask=activeTask redirect="redirect"}}
     </div>
 </div>

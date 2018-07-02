@@ -119,6 +119,117 @@ div.date input.form-control {
 
 
 
+/********styles for new card begins*********/
+
+
+h2 {
+	line-height: 1.2;
+	margin-bottom: 1.6rem;
+}
+
+.card {
+   
+	color: #666;
+}
+
+/**
+ * Helpers
+ */
+.border-tlr-radius { 
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px; 
+}
+
+
+.shadowDepth0 { box-shadow: 0 1px 3px rgba(0,0,0, 0.12); }
+
+.shadowDepth1 {
+   box-shadow: 
+  		0 1px 3px rgba(0,0,0, 0.12),
+    	0 1px 2px rgba(0,0,0, 0.24);      
+}
+
+
+.text-red {
+    color: #cd040b;
+}
+
+a {
+    cursor: pointer;
+}
+
+/**
+ * Card Styles
+ */
+
+.card__image {
+	min-height: 50px;
+    background-color: #007aff;
+    padding:5px 5px 3px 10px;
+    text-align:left;
+}
+
+.card__image span {
+    font-size: 1.5em;
+    color:#fff;
+}
+
+
+
+/* card meta */
+.card__meta time {
+	font-size: 1.5rem;
+	color: #bbb;
+	margin-left: 0.8rem;
+}
+
+
+
+	 
+
+.card__share {
+	float: right;
+	position: relative;
+	margin-top: -42px;
+}
+
+
+
+.share-toggle {
+	z-index: 2;
+}
+
+
+.share-icon {
+	display: inline-block;
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	border-radius: 50%;
+	background-color: #fff;
+	transition: all 0.3s ease;
+	outline: 0;
+
+	box-shadow: 
+	  		0 2px 4px rgba(0,0,0, 0.12),
+	    	0 2px 4px rgba(0,0,0, 0.24);
+}
+	.share-icon:hover,
+	.share-icon:focus {
+		box-shadow: 
+	  		0 3px 6px rgba(0,0,0, 0.12),
+	    	0 3px 6px rgba(0,0,0, 0.24);
+
+	    -webkit-transform: scale(1.2);
+	    -moz-transform: scale(1.2);
+	    -ms-transform: scale(1.2);
+	    -o-transform: scale(1.2);
+	    transform: scale(1.2);
+	}
+
+/******styles for new card ends*******/
+
 
 /********styles for notification begins**********/
 
